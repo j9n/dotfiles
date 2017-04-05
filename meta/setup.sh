@@ -43,6 +43,11 @@ function _git () {
     link-with-backup "$DOTFILES_DIR/git/gitconfig" "$HOME/.gitconfig"
 }
 
+# Setup usr tmp dir
+function _tmp () {
+    mkdir -p $HOME/.tmp
+}
+
 
 ####
 # RUN
@@ -59,11 +64,13 @@ if [ -z "$*" ]; then
         - bash
         - vim
         - git
+        - .tmp
 
     Modules:
         - bash: links .bashrc, .bash_profile, aliases
         - vim: links .vimrc
         - git: links .gitconfig
+        - .tmp: ~/.tmp directory for user tmp files
     "
     exit 1
 fi
@@ -73,6 +80,7 @@ if [ $1="default" ]; then
     _bash
     _vim
     _git
+    _tmp
     exit 1
 fi
 

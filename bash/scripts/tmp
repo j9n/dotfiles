@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+function tmp-clean {
+    # Use this to clean the usr tmp directory
+    rm -r $HOME/.tmp
+    mkdir -p $HOME/.tmp
+}

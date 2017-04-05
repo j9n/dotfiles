@@ -30,7 +30,7 @@ fresh_dir="$nchrome_dir/.fresh"
 
 # Temporary directory in which to create new user-data directories for
 # temporary Chrome instances.
-tmp_dir="/tmp"
+tmp_dir="$HOME/.tmp"
 
 
 
@@ -38,7 +38,7 @@ tmp_dir="/tmp"
 
 set -e
 
-timestamp=`date +%Y%m%d%H%M%S`
+timestamp=`date +%Y-%m-%d.%H:%M:%S`
 
 echo $(ls /usr/bin/google-chrome-stable)
 
