@@ -6,3 +6,11 @@ alias grep='grep --color=auto'
 
 # Alias for tig (git viewer)
 alias tiga='tig --all'
+
+# Alias for copying on cmd line
+case $(uname) in
+    'Linux')
+        alias pbcopy='xclip -selection clipboard'
+        alias pbpaste='xclip -selection clipboard -o'
+        ;;
+esac
