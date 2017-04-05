@@ -97,6 +97,13 @@ if [ -f $BASH_DOTFILES_DIR/aliases ]; then
     . $BASH_DOTFILES_DIR/aliases
 fi
 
+# Source bash scripts
+if [ -d $BASH_DOTFILES_DIR/scripts ]; then
+    for f in $BASH_DOTFILES_DIR/scripts/*; do
+        . $f
+    done
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
