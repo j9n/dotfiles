@@ -1,0 +1,8 @@
+# Alias for ls
+alias ls='ls --color=auto'
+
+# Alias for grep
+alias grep='grep --color=auto'
+
+# Alias for tig (git viewer)
+alias tiga='tig --all'
