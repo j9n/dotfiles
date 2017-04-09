@@ -7,6 +7,7 @@
 set -e
 
 DOTFILES_DIR="$HOME/.dotfiles"
+TMP_DIR="$HOME/.tmp"
 
 
 # Function to link folders with backup if it already exists
@@ -43,11 +44,18 @@ function _vim () {
 # Setup git configurations
 function _git () {
     link-with-backup "$DOTFILES_DIR/git/gitconfig" "$HOME/.gitconfig"
+
+    # Setup git bash completion
+    pushd $DOTFILES_DIR/git
+    curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o git-completion.bash
+    echo "\n#For git bash completion" >> $HOME/.bashrc.local
+    echo "source $DOTFILES_DIR/git/git-completion.bash" >> $HOME/.bashrc.local
+    popd
 }
 
 # Setup usr tmp dir
 function _tmp () {
-    mkdir -p $HOME/.tmp
+    mkdir -p $TMP_DIR
 }
 
 
@@ -80,9 +88,9 @@ fi
 # Run default
 if [ $1="default" ]; then
     _bash
+    _tmp
     _vim
     _git
-    _tmp
     exit 1
 fi
 
