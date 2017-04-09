@@ -117,3 +117,8 @@ fi
 
 # For autojump
 . /usr/share/autojump/autojump.bash
+
+# For local specific configs
+if [ -f $BASH_DOTFILES_DIR/bashrc.local ]; then
+    . $BASH_DOTFILES_DIR/bashrc.local
+fi

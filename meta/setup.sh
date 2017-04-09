@@ -31,6 +31,8 @@ function link-with-backup () {
 function _bash () {
     link-with-backup "$DOTFILES_DIR/bash/bash_profile" "$HOME/.bash_profile"
     link-with-backup "$DOTFILES_DIR/bash/bashrc" "$HOME/.bashrc"
+    touch $DOTFILES_DIR/bash/bashrc.local
+    link-with-backup "$DOTFILES_DIR/bash/bashrc" "$HOME/.bashrc.local"
 }
 
 # Setup vim configurations
