@@ -29,5 +29,35 @@
     changed = green
     untracked = cyan
 
+[user]
+    useConfigOnly = true
+
 [push]
     default = simple
+
+[alias]
+    rpull = pull --rebase
+    prune = fetch --prune
+    undo = reset --soft HEAD^
+    stash-all = stash save --include-untracked
+    glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
+
+[merge]
+    ff = only
+    conflictstyle = diff3
+
+[status]
+    showUntrackedFiles = all
+
+[transfer]
+    fsckobjects = true
+
+[stash]
+    showPatch = true
+
+[rebase]
+    autostash = true
+
+[log]
+    decorate = full
